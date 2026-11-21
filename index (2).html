@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#100d20">
+<meta name="description" content="یک سورپرایز تولد رنگارنگ و پر از آرزوهای قشنگ برای الناز">
+<title>تولدت مبارک الناز ✨</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap');
+:root{
+  --pink:#ff79b9;--purple:#b49aff;--blue:#78d4ff;--gold:#ffdc98;
+  --ink:#100d20;--glass:rgba(255,255,255,.085);--line:rgba(255,255,255,.16);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;min-height:100vh;color:#fff;font-family:"Vazirmatn",Tahoma,sans-serif;
+  background:
+    radial-gradient(ellipse at 12% 13%,rgba(148,55,173,.32),transparent 34%),
+    radial-gradient(ellipse at 87% 24%,rgba(34,112,190,.28),transparent 33%),
+    radial-gradient(ellipse at 52% 83%,rgba(205,75,143,.18),transparent 38%),
+    linear-gradient(135deg,#090817,#151027 48%,#081426);
+  overflow-x:hidden;
+}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;opacity:.25;background-image:radial-gradient(#fff 0.7px,transparent .7px);background-size:37px 37px;mask-image:linear-gradient(to bottom,black,transparent 90%)}
+button,input{font:inherit}
+button{cursor:pointer}
+a{color:inherit}
+#stars,.confetti-layer,.petal-layer{position:fixed;inset:0;pointer-events:none;overflow:hidden}
+#stars{z-index:0}
+.star{position:absolute;width:2px;height:2px;border-radius:50%;background:#fff;opacity:.45;animation:twinkle var(--t) ease-in-out infinite alternate}
+@keyframes twinkle{to{opacity:1;transform:scale(1.8)}}
+.confetti-layer,.petal-layer{z-index:20}
+.petal{position:absolute;top:-30px;width:12px;height:18px;border-radius:90% 5% 90% 5%;background:linear-gradient(145deg,var(--pink),var(--purple));opacity:.85;animation:fall linear forwards}
+@keyframes fall{to{transform:translate3d(var(--drift),110vh,0) rotate(780deg);opacity:.1}}
+.confetti{position:absolute;top:-20px;width:8px;height:14px;border-radius:2px;animation:confettiFall var(--dur) linear forwards}
+@keyframes confettiFall{to{transform:translate3d(var(--drift),110vh,0) rotate(900deg);opacity:.15}}
+.screen{position:relative;z-index:1}
+.intro{
+  min-height:100svh;display:grid;place-items:center;padding:28px 18px;text-align:center;
+  transition:opacity .8s ease,transform .8s ease;
+}
+.intro-card{
+  width:min(680px,100%);padding:clamp(28px,6vw,58px) clamp(22px,5vw,54px);
+  border:1px solid var(--line);border-radius:34px;
+  background:linear-gradient(135deg,rgba(255,255,255,.12),rgba(255,255,255,.035));
+  backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);
+  box-shadow:0 25px 90px #0007,inset 0 1px 0 #ffffff25;position:relative;overflow:hidden;
+}
+.intro-card:before{content:"";position:absolute;width:270px;height:270px;right:-110px;top:-150px;background:var(--purple);filter:blur(95px);opacity:.42}
+.intro-card:after{content:"";position:absolute;width:240px;height:240px;left:-110px;bottom:-145px;background:var(--pink);filter:blur(95px);opacity:.35}
+.mini-label{display:inline-flex;align-items:center;gap:8px;border:1px solid #ffffff30;background:#ffffff0c;padding:8px 15px;border-radius:99px;color:#f4e9ff;font-size:.84rem;position:relative;z-index:1}
+.glow-dot{width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 13px var(--gold)}
+.intro h1{font-size:clamp(2.25rem,8vw,5rem);line-height:1.2;margin:25px 0 12px;font-weight:900;letter-spacing:-2px;background:linear-gradient(100deg,#fff 10%,var(--pink) 42%,var(--blue) 74%,var(--gold));background-clip:text;-webkit-background-clip:text;color:transparent;position:relative;z-index:1}
+.intro p{max-width:480px;margin:0 auto 28px;color:#d9d2eb;line-height:2.1;position:relative;z-index:1}
+.primary-btn,.soft-btn{
+  border:0;border-radius:15px;padding:14px 24px;color:#1b1028;font-weight:800;
+  background:linear-gradient(110deg,var(--gold),var(--pink) 53%,#c4a7ff);
+  box-shadow:0 9px 30px #ff79b94a,0 0 0 1px #ffffff55 inset;
+  transition:transform .25s,box-shadow .25s;position:relative;z-index:1;
+}
+.primary-btn:hover,.soft-btn:hover{transform:translateY(-4px) scale(1.02);box-shadow:0 14px 38px #ff79b969}
+.primary-btn:active,.soft-btn:active{transform:scale(.97)}
+.intro-foot{display:block;margin-top:20px;color:#a99fbd;font-size:.78rem;position:relative;z-index:1}
+.hidden{display:none!important}
+#main{opacity:0;transform:translateY(24px);transition:opacity .9s ease,transform .9s ease}
+#main.show{opacity:1;transform:none}
+.topbar{position:absolute;top:18px;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:0 clamp(16px,5vw,64px);gap:12px;z-index:5}
+.brand{font-weight:800;letter-spacing:.3px;color:#f2eaff}
+.brand span{color:var(--gold)}
+.top-actions{display:flex;gap:8px}
+.icon-btn{border:1px solid #ffffff25;background:#ffffff0d;color:#fff;border-radius:12px;padding:10px 13px;backdrop-filter:blur(12px);font-size:.86rem}
+.icon-btn:hover{background:#ffffff1a}
+.hero{min-height:92svh;display:grid;align-items:center;text-align:center;padding:105px 18px 55px;position:relative}
+.hero-content{width:min(900px,100%);margin:auto}
+.eyebrow{color:#f8d7ff;font-size:.9rem;letter-spacing:1px}
+.hero h2{font-size:clamp(3rem,11vw,7.3rem);margin:12px 0 8px;line-height:1.08;font-weight:900;letter-spacing:-3px;background:linear-gradient(100deg,#fff 8%,#ff9bc8 35%,#b6a0ff 63%,#8bdcff 85%,#ffe2a6);background-clip:text;-webkit-background-clip:text;color:transparent;text-shadow:0 8px 45px #c16dff25}
+.hero .sub{font-size:clamp(1rem,2.5vw,1.28rem);color:#ded7ee;max-width:650px;margin:18px auto 25px;line-height:2}
+.tagline{display:inline-block;color:#ffdfa8;font-size:.9rem;border-bottom:1px solid #ffdfa855;padding:0 7px 6px}
+.scroll-hint{margin-top:38px;color:#aaa1bd;font-size:.8rem;animation:bob 2.2s infinite}
+@keyframes bob{50%{transform:translateY(8px)}}
+.section{width:min(1080px,calc(100% - 32px));margin:0 auto;padding:80px 0}
+.section-head{text-align:center;margin-bottom:35px}
+.section-head .kicker{color:var(--pink);font-size:.86rem}
+.section-head h3{font-size:clamp(1.8rem,5vw,3rem);margin:8px 0;color:#fff}
+.section-head p{color:#bdb4ce;line-height:1.9;margin:0 auto;max-width:620px}
+.glass-card{border:1px solid var(--line);background:linear-gradient(135deg,rgba(255,255,255,.105),rgba(255,255,255,.035));backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);box-shadow:0 22px 65px #0004,inset 0 1px #ffffff15;border-radius:26px}
+.bento{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}
+.message-card{padding:clamp(24px,5vw,42px);position:relative;overflow:hidden}
+.message-card:after{content:"✦";position:absolute;left:24px;top:8px;font-size:5rem;color:#ffdc9820}
+.message-card h4{margin:0 0 18px;font-size:1.3rem;color:#ffe0a7}
+.message-card p{font-size:1rem;line-height:2.35;color:#eee8f8;margin:0}
+.side-card{padding:27px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:12px}
+.orbit{width:115px;height:115px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 35% 30%,#ffd9ef,#c8a3ff 40%,#5cb8f1 75%,#242048);box-shadow:0 0 45px #b48cff55,0 0 0 9px #ffffff08;font-size:3rem;animation:float 4s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-12px) rotate(5deg)}}
+.side-card strong{font-size:1.1rem;color:#fff}
+.side-card span{font-size:.88rem;color:#c6bdd5;line-height:1.8}
+.cake-wrap{display:grid;place-items:center;padding:25px 15px 12px;min-height:390px;position:relative;overflow:hidden}
+.cake-glow{position:absolute;width:260px;height:180px;border-radius:50%;background:#ed87d4;filter:blur(90px);opacity:.22}
+.cake{position:relative;width:220px;height:220px;filter:drop-shadow(0 22px 25px #0006);transform-style:preserve-3d;animation:cakeFloat 5s ease-in-out infinite}
+@keyframes cakeFloat{50%{transform:translateY(-8px) rotateY(5deg)}}
+.plate{position:absolute;width:240px;height:30px;background:linear-gradient(#f9e7ff,#b0a0d9 45%,#5f558b);border-radius:50%;bottom:12px;left:50%;transform:translateX(-50%);box-shadow:0 12px 22px #0005}
+.layer{position:absolute;left:50%;transform:translateX(-50%);border-radius:50%/18%;box-shadow:inset -10px -8px 0 #0002,inset 8px 7px 0 #ffffff22}
+.layer.bottom{width:205px;height:83px;bottom:32px;background:linear-gradient(90deg,#7440a8,#d881bc 48%,#813b9c)}
+.layer.middle{width:166px;height:72px;bottom:91px;background:linear-gradient(90deg,#4b72bd,#a78bfa 50%,#568ecb)}
+.layer.top{width:126px;height:60px;bottom:143px;background:linear-gradient(90deg,#d75c9b,#ffc5de 48%,#bd6ed4)}
+.icing{position:absolute;left:50%;transform:translateX(-50%);width:126px;height:25px;bottom:178px;border-radius:50%;background:linear-gradient(90deg,#fff0fa,#fff 52%,#f3c8ff);box-shadow:0 5px 0 #d99bcf}
+.icing:before,.icing:after{content:"";position:absolute;background:#fff0fa;width:13px;height:30px;border-radius:0 0 10px 10px;top:9px}
+.icing:before{left:25px}.icing:after{right:26px;height:22px}
+.candle{position:absolute;bottom:198px;left:50%;transform:translateX(-50%);width:11px;height:48px;border-radius:5px;background:repeating-linear-gradient(135deg,#fff 0 6px,#ff8fc3 6px 12px);z-index:2;box-shadow:0 0 8px #fff6}
+.flame{position:absolute;bottom:242px;left:50%;transform:translateX(-50%);width:17px;height:27px;background:radial-gradient(ellipse at 50% 70%,#fff9b2 0 18%,#ffc45b 38%,#ff6c9c 68%,transparent 72%);border-radius:50% 50% 48% 48%;filter:drop-shadow(0 0 10px #ffb84c);animation:flame 1s ease-in-out infinite alternate;transform-origin:50% 100%;z-index:3}
+@keyframes flame{to{transform:translateX(-50%) rotate(7deg) scale(.9);filter:drop-shadow(0 0 16px #ffd36f)}}
+.cake-hint{color:#beb4cf;font-size:.85rem;text-align:center;margin-top:12px}
+.cake-controls{text-align:center;margin-top:18px}
+.soft-btn{background:linear-gradient(110deg,#f7d9ff,#a9dfff);color:#171127;padding:12px 20px}
+.soft-btn:disabled{opacity:.65;cursor:default;transform:none}
+.wish-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.wish{padding:24px 20px;text-align:center;transition:transform .3s}
+.wish:hover{transform:translateY(-7px)}
+.wish .emoji{font-size:2rem;display:block;margin-bottom:12px}
+.wish h4{margin:0 0 8px;color:#ffe2ab}
+.wish p{margin:0;color:#cfc7dd;line-height:1.9;font-size:.9rem}
+.gallery-tools{display:flex;justify-content:center;margin:22px 0}
+.upload-label{display:inline-flex;gap:8px;align-items:center;border:1px dashed #ffffff55;border-radius:14px;padding:12px 17px;color:#e9dfff;background:#ffffff0a;cursor:pointer}
+.upload-label input{display:none}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.photo{min-height:190px;border-radius:20px;overflow:hidden;position:relative;display:grid;place-items:center;border:1px solid #ffffff20;background:linear-gradient(145deg,#35204d,#18314f 60%,#49294d)}
+.photo img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.photo .placeholder{padding:18px;text-align:center;color:#d8cee9;line-height:1.9}
+.photo .placeholder b{display:block;font-size:2rem;color:#ffdba0}
+.photo:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#08071766,transparent 60%);pointer-events:none}
+.count-card{padding:30px;text-align:center;max-width:720px;margin:auto}
+.date-row{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin:18px 0}
+.date-row input{color:#fff;background:#100d20;border:1px solid #ffffff35;border-radius:12px;padding:10px 12px}
+.countdown{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:18px}
+.time-box{min-width:78px;padding:13px 10px;border-radius:15px;background:#ffffff0d;border:1px solid #ffffff1b}
+.time-box b{display:block;font-size:1.6rem;color:#ffdfa5}
+.time-box small{color:#bcb2ca}
+#count-note{color:#c8bfd8;font-size:.86rem;line-height:1.8}
+.final-card{padding:clamp(28px,6vw,55px);text-align:center;position:relative;overflow:hidden}
+.final-card h3{font-size:clamp(2rem,6vw,3.5rem);margin:8px 0 12px;background:linear-gradient(90deg,var(--pink),var(--purple),var(--blue),var(--gold));background-clip:text;-webkit-background-clip:text;color:transparent}
+.final-card p{line-height:2.1;color:#e7dff1;max-width:620px;margin:0 auto 22px}
+.signature{color:#ffdda2;font-weight:700}
+footer{text-align:center;padding:30px 15px 45px;color:#8f86a2;font-size:.8rem}
+.reveal{opacity:0;transform:translateY(25px);transition:opacity .75s ease,transform .75s ease}
+.reveal.visible{opacity:1;transform:none}
+.sparkle-cursor{position:fixed;pointer-events:none;z-index:30;width:7px;height:7px;background:#ffe2a5;border-radius:50%;box-shadow:0 0 12px #ffe2a5}
+@media(max-width:760px){
+ .bento{grid-template-columns:1fr}.wish-grid{grid-template-columns:1fr}.gallery{grid-template-columns:1fr 1fr}
+ .photo{min-height:155px}.hero{min-height:85svh}.topbar{top:12px}.brand{font-size:.9rem}
+ .section{padding:58px 0}.cake-wrap{min-height:345px}
+}
+@media(max-width:420px){.gallery{grid-template-columns:1fr}.photo{min-height:185px}.top-actions .icon-btn{padding:8px 10px;font-size:.77rem}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<!-- Design note: mortezaazimi.ir -->
+<div id="stars" aria-hidden="true"></div>
+<div class="petal-layer" id="petals" aria-hidden="true"></div>
+<div class="confetti-layer" id="confetti" aria-hidden="true"></div>
+
+<section class="intro screen" id="intro">
+  <div class="intro-card">
+    <div class="mini-label"><i class="glow-dot"></i> یک سورپرایز کوچک، برای یک آدم دوست‌داشتنی</div>
+    <h1>الناز جان...</h1>
+    <p>امروز یک گوشه از اینترنت را با رنگ‌های قشنگ و آرزوهای خوب برای تو آماده کرده‌ام. آماده‌ای سورپرایزت را ببینی؟</p>
+    <button class="primary-btn" id="openBtn">باز کردن سورپرایز ✨</button>
+    <span class="intro-foot">به افتخار روزی که دنیا قشنگ‌تر شد</span>
+  </div>
+</section>
+
+<main id="main" class="screen hidden">
+  <header class="topbar">
+    <div class="brand">A little magic <span>✦</span> for Elnaz</div>
+    <div class="top-actions">
+      <button class="icon-btn" id="musicBtn" aria-pressed="false">♫ پخش موسیقی</button>
+      <button class="icon-btn" id="shareBtn">↗ اشتراک‌گذاری</button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <div class="eyebrow">✦ امروز روز توئه ✦</div>
+      <h2>Happy Birthday<br>ELNAZ</h2>
+      <p class="sub">برای الناز؛ کسی که لایق لحظه‌هایی پر از لبخند، اتفاق‌های قشنگ و آرزوهای برآورده‌شده است.</p>
+      <span class="tagline">یک دنیا اتفاق خوب، در یک روز خاص</span>
+      <div class="scroll-hint">برای دیدن سورپرایزهای بعدی، کمی پایین‌تر بیا ↓</div>
+    </div>
+  </section>
+
+  <section class="section reveal">
+    <div class="section-head">
+      <span class="kicker">A NOTE FOR YOU</span>
+      <h3>چند کلمه از ته دل 💌</h3>
+      <p>گاهی یک پیام ساده هم می‌تواند یک روز را قشنگ‌تر کند.</p>
+    </div>
+    <div class="bento">
+      <article class="glass-card message-card">
+        <h4>الناز عزیز، تولدت مبارک! 🌷</h4>
+        <p>
+          امیدوارم سال جدید زندگیت پر از خبرهای خوب، خنده‌های از ته دل و آدم‌هایی باشد که بودنت را قدر می‌دانند.
+          آرزو می‌کنم هر چیزی که ته دلت می‌خواهی، در بهترین زمان و به قشنگ‌ترین شکل ممکن سر راهت قرار بگیرد.
+          <br><br>
+          روزهایی داشته باشی که آن‌قدر خوب‌اند که دلت بخواهد زمان همان‌جا متوقف شود؛
+          شجاعت دنبال کردن رؤیاهایت را داشته باشی و حتی در روزهای معمولی هم دلیل کوچکی برای لبخند پیدا کنی.
+          <br><br>
+          ممنون که با شخصیت و انرژی خودت به دنیای اطرافت رنگ می‌دهی. امیدوارم همیشه بدرخشی، بخندی و از زندگی کلی خاطره‌ی شیرین جمع کنی.
+          <br><br>
+          <strong style="color:#ffdca0">تولدت مبارک؛ بهترین‌ها هنوز در راه‌اند. ✨</strong>
+        </p>
+      </article>
+      <aside class="glass-card side-card">
+        <div class="orbit">💖</div>
+        <strong>برای تو، الناز</strong>
+        <span>چهار رنگ، هزار آرزو، و یک عالمه انرژی خوب برای شروع یک فصل تازه.</span>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section reveal">
+    <div class="section-head">
+      <span class="kicker">MAKE A WISH</span>
+      <h3>وقتشه آرزو کنی! 🎂</h3>
+      <p>یک آرزو توی دلت نگه دار و وقتی آماده بودی، شمع‌ها را خاموش کن.</p>
+    </div>
+    <div class="glass-card cake-wrap">
+      <div class="cake-glow"></div>
+      <div class="cake" role="img" aria-label="کیک تولد سه طبقه با شمع روشن">
+        <div class="plate"></div>
+        <div class="layer bottom"></div>
+        <div class="layer middle"></div>
+        <div class="layer top"></div>
+        <div class="icing"></div>
+        <div class="candle" id="candle"></div>
+        <div class="flame" id="flame"></div>
+      </div>
+      <div class="cake-hint" id="cakeHint">چشماتو ببند، آرزوت رو بکن و دکمه رو بزن ✨</div>
+    </div>
+    <div class="cake-controls">
+      <button class="soft-btn" id="blowBtn">فوت کردن شمع‌ها 🕯️</button>
+    </div>
+  </section>
+
+  <section class="section reveal">
+    <div class="section-head">
+      <span class="kicker">WISHES FOR YOUR NEW YEAR</span>
+      <h3>برای سال تازه‌ی زندگیت 🌈</h3>
+      <p>چهار رنگ برای چهار دسته آرزوی قشنگ.</p>
+    </div>
+    <div class="wish-grid">
+      <article class="glass-card wish"><span class="emoji">💜</span><h4>آرامش بنفش</h4><p>دلت همیشه آرام باشد و میان شلوغی‌های دنیا، گوشه‌ای امن برای خودت داشته باشی.</p></article>
+      <article class="glass-card wish"><span class="emoji">🌹</span><h4>مهربانی صورتی</h4><p>محبت واقعی را تجربه کنی و لبخندهای صمیمی سهم همیشگی روزهایت باشند.</p></article>
+      <article class="glass-card wish"><span class="emoji">🌌</span><h4>رویاهای آبی</h4><p>جرئت پرواز به سمت هدف‌هایت را داشته باشی و به چیزهایی که دور به نظر می‌رسند برسی.</p></article>
+    </div>
+  </section>
+
+  <section class="section reveal">
+    <div class="section-head">
+      <span class="kicker">LITTLE MEMORIES</span>
+      <h3>قاب خاطره‌ها 📸</h3>
+      <p>می‌توانی چند عکس دلخواه انتخاب کنی تا در این قاب‌ها نمایش داده شوند. این بخش اختیاری است.</p>
+    </div>
+    <div class="gallery-tools">
+      <label class="upload-label">＋ افزودن عکس‌ها
+        <input type="file" id="photoInput" accept="image/*" multiple>
+      </label>
+    </div>
+    <div class="gallery" id="gallery">
+      <div class="photo"><div class="placeholder"><b>✧</b>خاطره‌های قشنگ<br>هنوز در راه‌اند</div></div>
+      <div class="photo"><div class="placeholder"><b>♡</b>لحظه‌هایی برای<br>به یاد آوردن</div></div>
+      <div class="photo"><div class="placeholder"><b>✦</b>یک قاب پر از<br>لبخندهای تو</div></div>
+    </div>
+  </section>
+
+  <section class="section reveal">
+    <div class="section-head">
+      <span class="kicker">COUNT THE MAGIC</span>
+      <h3>تا جشن بعدی 🎈</h3>
+      <p>تاریخ تولد بعدی را انتخاب کن تا شمارش معکوسش را ببینی.</p>
+    </div>
+    <div class="glass-card count-card">
+      <div class="date-row">
+        <label for="birthdayDate">تاریخ تولد بعدی:</label>
+        <input type="date" id="birthdayDate">
+      </div>
+      <div id="count-note">بعد از انتخاب تاریخ، شمارش معکوس اینجا نمایش داده می‌شود.</div>
+      <div class="countdown" id="countdown">
+        <div class="time-box"><b>—</b><small>روز</small></div>
+        <div class="time-box"><b>—</b><small>ساعت</small></div>
+        <div class="time-box"><b>—</b><small>دقیقه</small></div>
+        <div class="time-box"><b>—</b><small>ثانیه</small></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section reveal">
+    <div class="glass-card final-card">
+      <div class="mini-label"><i class="glow-dot"></i> همیشه بدرخش</div>
+      <h3>بهترین‌ها برای تو، الناز</h3>
+      <p>امیدوارم هر بار که این صفحه را می‌بینی، یادت بیاید که دنیا هنوز پر از رنگ، امید و اتفاق‌های قشنگ است. این هدیه‌ی کوچکی است برای روز بزرگ تو؛ با آرزوی لبخندهای بیشتر و روزهایی روشن‌تر.</p>
+      <div class="signature">با آرزوی قشنگ‌ترین‌ها ✨</div>
+      <div style="margin-top:25px"><button class="primary-btn" id="againBtn">یک بار دیگه جشن بگیریم 🎉</button></div>
+    </div>
+  </section>
+  <footer>ساخته شده با کلی آرزوی خوب برای الناز 💜</footer>
+</main>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const stars = $('stars');
+  for (let i=0;i<85;i++){
+    const s=document.createElement('i');s.className='star';
+    s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';
+    s.style.setProperty('--t',(1.5+Math.random()*3)+'s');s.style.animationDelay=(-Math.random()*4)+'s';
+    stars.appendChild(s);
+  }
+
+  $('openBtn').addEventListener('click',()=>{
+    $('intro').style.opacity='0';$('intro').style.transform='scale(.96)';
+    setTimeout(()=>{
+      $('intro').classList.add('hidden');$('main').classList.remove('hidden');
+      requestAnimationFrame(()=>$('main').classList.add('show'));
+      burstConfetti(100);makePetals(22);
+    },650);
+  });
+
+  function burstConfetti(amount=75){
+    const box=$('confetti');
+    const colors=['#ff79b9','#b49aff','#78d4ff','#ffdc98','#ffffff'];
+    for(let i=0;i<amount;i++){
+      const el=document.createElement('i');el.className='confetti';
+      el.style.left=(Math.random()*100)+'%';el.style.background=colors[i%colors.length];
+      el.style.setProperty('--drift',((Math.random()-.5)*260)+'px');
+      el.style.setProperty('--dur',(3+Math.random()*3)+'s');
+      el.style.animationDelay=(Math.random()*.5)+'s';
+      box.appendChild(el);setTimeout(()=>el.remove(),7000);
+    }
+  }
+  function makePetals(amount=18){
+    const box=$('petals');
+    for(let i=0;i<amount;i++){
+      const el=document.createElement('i');el.className='petal';
+      el.style.left=Math.random()*100+'%';el.style.background=i%2?'linear-gradient(145deg,#ff8fbd,#b59aff)':'linear-gradient(145deg,#ffdc98,#ff79b9)';
+      el.style.setProperty('--drift',((Math.random()-.5)*220)+'px');
+      el.style.animationDuration=(6+Math.random()*5)+'s';el.style.animationDelay=(Math.random()*2)+'s';
+      box.appendChild(el);setTimeout(()=>el.remove(),12000);
+    }
+  }
+
+  let blown=false;
+  $('blowBtn').addEventListener('click',()=>{
+    if(!blown){
+      $('flame').style.display='none';$('candle').style.opacity='.65';
+      $('cakeHint').textContent='آرزوت رو کردی؟ امیدوارم خیلی زود برآورده بشه! 💫';
+      $('blowBtn').textContent='جشن دوباره 🎉';blown=true;burstConfetti(130);makePetals(26);
+    }else{
+      $('flame').style.display='block';$('candle').style.opacity='1';
+      $('cakeHint').textContent='این بار هم یک آرزوی تازه کن ✨';
+      $('blowBtn').textContent='فوت کردن شمع‌ها 🕯️';blown=false;
+    }
+  });
+  $('againBtn').addEventListener('click',()=>{burstConfetti(150);makePetals(28);window.scrollTo({top:0,behavior:'smooth'});});
+
+  // A gentle, original tone pattern generated in the browser; no external music file is needed.
+  let audioCtx=null, musicTimer=null, musicOn=false, noteIndex=0;
+  const notes=[261.63,329.63,392.00,329.63,293.66,349.23,440.00,392.00];
+  function playNote(){
+    if(!audioCtx||!musicOn)return;
+    const now=audioCtx.currentTime, freq=notes[noteIndex%notes.length];noteIndex++;
+    const osc=audioCtx.createOscillator(),gain=audioCtx.createGain();
+    osc.type='sine';osc.frequency.value=freq;gain.gain.setValueAtTime(.0001,now);
+    gain.gain.exponentialRampToValueAtTime(.035,now+.08);gain.gain.exponentialRampToValueAtTime(.0001,now+.65);
+    osc.connect(gain);gain.connect(audioCtx.destination);osc.start(now);osc.stop(now+.68);
+  }
+  $('musicBtn').addEventListener('click',async()=>{
+    if(!audioCtx) audioCtx=new (window.AudioContext||window.webkitAudioContext)();
+    if(audioCtx.state==='suspended')await audioCtx.resume();
+    musicOn=!musicOn;$('musicBtn').textContent=musicOn?'Ⅱ توقف موسیقی':'♫ پخش موسیقی';
+    $('musicBtn').setAttribute('aria-pressed',String(musicOn));
+    if(musicOn){playNote();musicTimer=setInterval(playNote,720);}
+    else{clearInterval(musicTimer);}
+  });
+
+  $('shareBtn').addEventListener('click',async()=>{
+    const data={title:'تولدت مبارک الناز',text:'یک سورپرایز تولد کوچک و پر از آرزوهای خوب برای الناز 💜',url:location.href};
+    try{
+      if(navigator.share) await navigator.share(data);
+      else if(navigator.clipboard?.writeText){await navigator.clipboard.writeText(location.href);$('shareBtn').textContent='لینک کپی شد ✓';setTimeout(()=>$('shareBtn').textContent='↗ اشتراک‌گذاری',2200);}
+      else alert('آدرس این صفحه را از نوار مرورگر کپی و برای الناز ارسال کن.');
+    }catch(e){/* User cancelled the share sheet. */}
+  });
+
+  $('photoInput').addEventListener('change',(event)=>{
+    const files=[...event.target.files].filter(f=>f.type.startsWith('image/')).slice(0,9);
+    if(!files.length)return;
+    const gallery=$('gallery');gallery.innerHTML='';
+    files.forEach(file=>{
+      const url=URL.createObjectURL(file),card=document.createElement('div');card.className='photo';
+      const img=document.createElement('img');img.src=url;img.alt='عکس خاطره';
+      card.appendChild(img);gallery.appendChild(card);
+    });
+  });
+
+  let countInterval=null;
+  $('birthdayDate').addEventListener('change',()=>{
+    const dateValue=$('birthdayDate').value;
+    if(!dateValue)return;
+    const selected=new Date(dateValue+'T00:00:00');
+    const now=new Date();
+    if(selected<=now){$('count-note').textContent='این تاریخ گذشته است؛ تاریخ تولد بعدی را انتخاب کن.';return;}
+    $('count-note').textContent='شمارش معکوس تا روز تولد بعدی شروع شد 💖';
+    clearInterval(countInterval);
+    const boxes=$('countdown').querySelectorAll('.time-box b');
+    const tick=()=>{
+      let diff=selected.getTime()-Date.now();
+      if(diff<=0){boxes.forEach(x=>x.textContent='0');$('count-note').textContent='روز جشن رسید! تولدت مبارک 🎉';burstConfetti(100);clearInterval(countInterval);return;}
+      const units=[Math.floor(diff/86400000),Math.floor(diff%86400000/3600000),Math.floor(diff%3600000/60000),Math.floor(diff%60000/1000)];
+      boxes.forEach((x,i)=>x.textContent=String(units[i]).padStart(2,'0'));
+    };
+    tick();countInterval=setInterval(tick,1000);
+  });
+
+  // Subtle pointer parallax on larger screens only.
+  if(matchMedia('(pointer:fine)').matches){
+    document.addEventListener('pointermove',(e)=>{
+      const x=(e.clientX/innerWidth-.5),y=(e.clientY/innerHeight-.5);
+      document.querySelector('.hero-content')?.style.setProperty('--px',x*8+'px');
+      const hero=document.querySelector('.hero-content');
+      if(hero)hero.style.transform=`translate3d(${x*7}px,${y*6}px,0)`;
+    });
+    document.addEventListener('pointerleave',()=>{const h=document.querySelector('.hero-content');if(h)h.style.transform='';});
+  }
+  const observer=new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target);}});
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+})();
+</script>
+</body>
+</html>
